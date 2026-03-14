@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ARX Roleplay | Cidade RP</title>
+
+    <meta name="description"
+        content="ARX Roleplay - Uma cidade viva onde cada decisão cria uma nova história. Entre agora no Discord e comece sua jornada.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/assets/icons/favicon.ico">
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/icons/favicon.png">
+    <meta name="theme-color" content="#0f172a">
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="assets/logo/logo.png" alt="ARX Roleplay">
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#sistemas">Sistemas</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#como-jogar">Como Jogar</a></li>
+
+            </ul>
+
+            <a href="https://discord.gg/Tw3AV8qJjy" class="btn-discord" target="_blank" rel="noopener noreferrer">
+                Entrar no Discord
+            </a>
+
+        </nav>
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section id="inicio" class="hero">
+
+        <video autoplay muted loop class="hero-video">
+            <source src="assets/videos/LogoAnim.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>ARX ROLEPLAY</h1>
+
+            <p>
+                Uma cidade viva. Cada decisão cria uma nova história.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://discord.gg/Tw3AV8qJjy" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    Entrar na Cidade
+                </a>
+
+                <a href="#sobre" class="btn-secondary">
+                    Conhecer o Servidor
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- ESTATÍSTICAS -->
+    <!-- ========================= -->
+
+    <section class="server-status">
+
+        <div class="container">
+
+            <h2>Status da Cidade</h2>
+
+            <div class="status-grid">
+
+                <div class="status-card">
+                    <h3>👥 Jogadores</h3>
+                    <p id="players-count">Carregando...</p>
+                </div>
+
+                <div class="status-card">
+                    <h3>🟢 Status</h3>
+                    <p id="server-status">Verificando...</p>
+                </div>
+
+                <div class="status-card">
+                    <h3>🗺️ Mapa</h3>
+                    <p id="server-map">São Paulo</p>
+                </div>
+
+                <div class="status-card">
+                    <h3>💬 Discord</h3>
+                    <p id="discord-members">Carregando...</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SOBRE O SERVIDOR -->
+    <!-- ========================= -->
+
+    <section id="sobre" class="about">
+
+        <div class="container">
+
+            <h2>Sobre o ARX Roleplay</h2>
+
+            <p>
+                O ARX Roleplay é um servidor focado em roleplay sério, economia balanceada
+                e sistemas exclusivos. Nossa cidade oferece liberdade total para você
+                construir sua história dentro de um ambiente dinâmico e imersivo.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SISTEMAS -->
+    <!-- ========================= -->
+
+    <section id="sistemas" class="systems">
+
+        <div class="container">
+
+            <h2>Sistemas da Cidade</h2>
+
+            <div class="systems-grid">
+
+                <div class="system-card">
+
+                    <h3>Polícia</h3>
+                    <p>Sistema completo de investigação e operações.</p>
+
+                </div>
+
+                <div class="system-card">
+
+                    <h3>Empregos</h3>
+                    <p>Diversos trabalhos legais e ilegais disponíveis.</p>
+
+                </div>
+
+                <div class="system-card">
+
+                    <h3>Economia</h3>
+                    <p>Economia dinâmica controlada pelos jogadores.</p>
+
+                </div>
+
+                <div class="system-card">
+
+                    <h3>Veículos</h3>
+                    <p>Grande variedade de carros customizados.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- GALERIA -->
+    <!-- ========================= -->
+
+    <section id="galeria" class="gallery">
+
+        <div class="container">
+
+            <h2>Galeria da Cidade</h2>
+
+            <div class="gallery-grid">
+
+                <img src="assets/images/city1.jpg" onclick="openImage(this)">
+                <img src="assets/images/city2.jpg" onclick="openImage(this)">
+                <img src="assets/images/city3.jpg" onclick="openImage(this)">
+                <img src="assets/images/event.png" onclick="openImage(this)">
+                <img src="assets/images/city5.png" onclick="openImage(this)">
+                <img src="assets/images/city6.png" onclick="openImage(this)">
+                <img src="assets/images/city7.png" onclick="openImage(this)">
+                <img src="assets/images/city8.jpg" onclick="openImage(this)">
+
+            </div>
+
+            <div id="lightbox">
+
+                <span onclick="closeImage()">×</span>
+
+                <img id="lightbox-img">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- COMO JOGAR -->
+    <!-- ========================= -->
+
+    <section id="como-jogar" class="how-to-play">
+
+        <div class="container">
+
+            <h2>Como entrar na cidade</h2>
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <h3>1</h3>
+                    <p>Entre no nosso Discord</p>
+
+                </div>
+
+                <div class="step">
+
+                    <h3>2</h3>
+                    <p>Leia as regras</p>
+
+                </div>
+
+                <div class="step">
+
+                    <h3>3</h3>
+                    <p>Faça sua whitelist</p>
+
+                </div>
+
+                <div class="step">
+
+                    <h3>4</h3>
+                    <p>Comece sua história</p>
+
+                </div>
+
+            </div>
+
+            <a href="https://discord.gg/Tw3AV8qJjy" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                Entrar no Discord
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CALL TO ACTION -->
+    <!-- ========================= -->
+
+    <section class="cta">
+
+        <div class="cta-content">
+
+            <h2>A cidade está esperando você.</h2>
+
+            <p>Entre agora e comece sua jornada no ARX Roleplay.</p>
+
+            <a href="https://discord.gg/Tw3AV8qJjy" class="cta-button" target="_blank" rel="noopener noreferrer">
+                Entrar na Cidade
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>© 2026 ARX Roleplay - Todos os direitos reservados</p>
+
+            <div class="social">
+
+                <a href="https://discord.gg/Tw3AV8qJjy" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/discord.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/server.js"></script>
+
+</body>
+
+</html>
