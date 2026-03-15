@@ -328,12 +328,70 @@
 
     </footer>
 
+    <!-- ========================= -->
+    <!-- RÁDIO -->
+    <!-- ========================= -->
+
+    <div id="radio-player">
+
+        <div class="radio-header" id="radio-drag">
+
+            <div class="radio-left">
+                <span>🎧 ARX Radio</span>
+
+                <div class="radio-eq">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <button id="radio-minimize">▾</button>
+
+        </div>
+
+        <div class="radio-body">
+
+            <div class="radio-track">
+
+                <img id="radio-cover" src="" alt="cover">
+
+                <div class="radio-info">
+
+                    <div id="radio-title-container">
+                        <div id="radio-title">Carregando...</div>
+                    </div>
+
+                    <div class="radio-progress">
+                        <div id="radio-progress-bar"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="radio-controls">
+
+                <button id="radio-play">▶</button>
+
+                <input type="range" id="radio-volume" min="0" max="100">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="youtube-player"></div>
 
     <script src="js/main.js"></script>
     <script src="js/discord.js"></script>
     <script src="js/particles.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="js/server.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 
