@@ -1,22 +1,34 @@
 const serverID = "zx5p8p";
 
-fetch(`https://servers-frontend.fivem.net/api/servers/single/${serverID}`)
+fetch("/api/server")
     .then(res => res.json())
     .then(data => {
 
         const serverData = data.Data;
 
+        if (!serverData) throw new Error();
+
         const players = serverData.players.length;
         const maxPlayers = serverData.sv_maxclients;
 
-        document.getElementById("players-count").innerText =
-            players + " / " + maxPlayers;
+        const playersEl = document.getElementById("players-count");
+        const statusEl = document.getElementById("server-status");
 
-        document.getElementById("server-status").innerText = "Online";
+        if (playersEl) {
+            playersEl.innerText = players + " / " + maxPlayers;
+        }
+
+        if (statusEl) {
+            statusEl.innerText = "Online";
+        }
 
     })
     .catch(() => {
 
-        document.getElementById("server-status").innerText = "Offline";
+        const statusEl = document.getElementById("server-status");
+
+        if (statusEl) {
+            statusEl.innerText = "Offline";
+        }
 
     });
