@@ -65,13 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // executa só se existir no HTML
-    if (document.getElementById("players-online")) {
-        animateCounter("players-online", 120);
-    }
-
-    if (document.getElementById("discord-members")) {
-        animateCounter("discord-members", 850);
-    }
+    // if (document.getElementById("players-online")) {
+    //     animateCounter("players-online", 120);
+    // }
+    //
+    // if (document.getElementById("discord-members")) {
+    //    animateCounter("discord-members", 850);
+    // }
 
 });
 
