@@ -1,5 +1,6 @@
 let player;
 
+// API READY
 function onYouTubeIframeAPIReady() {
 
     player = new YT.Player('youtube-player', {
@@ -20,75 +21,107 @@ function onYouTubeIframeAPIReady() {
 
 }
 
+// PLAYER READY
 function onPlayerReady() {
 
     player.mute();
-
     player.playVideo();
 
     loadVolume();
-
     updateSong();
 
     setInterval(updateProgress, 1000);
 
 }
 
-const playBtn = document.getElementById("radio-play");
+// ESPERA DOM
+document.addEventListener("DOMContentLoaded", () => {
 
-playBtn.onclick = () => {
+    const playBtn = document.getElementById("radio-play");
+    const volume = document.getElementById("radio-volume");
+    const radioPlayer = document.getElementById("radio-player");
+    const minimizeBtn = document.getElementById("radio-minimize");
 
-    let state = player.getPlayerState();
+    // PLAY / PAUSE
+    if (playBtn) {
+        playBtn.onclick = () => {
 
-    if (state !== 1) {
+            if (!player) return;
 
-        player.unMute();
-        player.playVideo();
-        playBtn.textContent = "⏸";
-        toggleEQ(true);
+            let state = player.getPlayerState();
 
-    } else {
+            if (state !== 1) {
 
-        player.pauseVideo();
-        playBtn.textContent = "▶";
-        toggleEQ(false);
+                player.unMute();
+                player.playVideo();
+                playBtn.textContent = "⏸";
+                toggleEQ(true);
 
+            } else {
+
+                player.pauseVideo();
+                playBtn.textContent = "▶";
+                toggleEQ(false);
+
+            }
+
+        };
     }
 
-};
+    // VOLUME
+    if (volume) {
+        volume.addEventListener("input", (e) => {
 
-const volume = document.getElementById("radio-volume");
+            if (!player) return;
 
-volume.addEventListener("input", (e) => {
+            player.setVolume(e.target.value);
+            localStorage.setItem("arx_radio_volume", e.target.value);
 
-    player.setVolume(e.target.value);
+        });
+    }
 
-    localStorage.setItem("arx_radio_volume", e.target.value);
+    // MINIMIZAR
+    if (minimizeBtn && radioPlayer) {
+        minimizeBtn.addEventListener("click", () => {
+            radioPlayer.classList.toggle("minimized");
+        });
+    }
 
 });
 
+// VOLUME SALVO
 function loadVolume() {
+
+    const volume = document.getElementById("radio-volume");
+
+    if (!volume || !player) return;
 
     let saved = localStorage.getItem("arx_radio_volume");
 
     if (!saved) saved = 50;
 
     volume.value = saved;
-
     player.setVolume(saved);
 
 }
 
+// ATUALIZA MÚSICA
 function updateSong() {
+
+    if (!player || !player.getVideoData) return;
 
     const data = player.getVideoData();
 
     if (data && data.title) {
 
-        document.getElementById("radio-title").textContent = data.title;
+        const title = document.getElementById("radio-title");
+        const cover = document.getElementById("radio-cover");
 
-        document.getElementById("radio-cover").src =
-            `https://img.youtube.com/vi/${data.video_id}/hqdefault.jpg`;
+        if (title) title.textContent = data.title;
+
+        if (cover) {
+            cover.src = `https://img.youtube.com/vi/${data.video_id}/hqdefault.jpg`;
+        }
 
     }
 
@@ -96,26 +129,28 @@ function updateSong() {
 
 }
 
+// BARRA DE PROGRESSO
 function updateProgress() {
 
-    if (!player.getDuration) return;
+    if (!player || !player.getDuration) return;
 
-    const percent = (player.getCurrentTime() / player.getDuration()) * 100;
+    const duration = player.getDuration();
 
-    document.getElementById("radio-progress-bar")
-        .style.width = percent + "%";
+    if (!duration) return;
+
+    const current = player.getCurrentTime();
+
+    const percent = (current / duration) * 100;
+
+    const bar = document.getElementById("radio-progress-bar");
+
+    if (bar) {
+        bar.style.width = percent + "%";
+    }
 
 }
 
-const radioPlayer = document.getElementById("radio-player");
-const minimizeBtn = document.getElementById("radio-minimize");
-
-minimizeBtn.addEventListener("click", () => {
-
-    radioPlayer.classList.toggle("minimized");
-
-});
-
+// EQUALIZER
 function toggleEQ(state) {
 
     const bars = document.querySelectorAll(".radio-eq span");
