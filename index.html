@@ -104,13 +104,20 @@
 
             <div class="hero-buttons">
 
-                <a href="https://discord.gg/Tw3AV8qJjy" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.gg/Tw3AV8qJjy" 
+                class="btn btn-primary" 
+                target="_blank" 
+                rel="noopener noreferrer">
                     Entrar na Cidade
                 </a>
 
-                <a href="#sobre" class="btn-secondary">
+                <a href="#sobre" class="btn btn-outline">
                     Conhecer o Servidor
                 </a>
+
+                <button class="btn btn-primary" onclick="openTrailer()">
+                    Assistir Trailer
+                </button>
 
             </div>
 
@@ -262,6 +269,24 @@
     </section>
 
 
+    <!-- 🎬 TRAILER -->
+    <section class="trailer-section" id="trailer">
+
+        <h2>🎬 Trailer Oficial</h2>
+        <p>Conheça a cidade antes de entrar.</p>
+
+        <div class="trailer-container">
+            <iframe 
+                src="https://www.youtube.com/embed/uLveNU0p88A?controls=1&modestbranding=1&rel=0&showinfo=0"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </section>
+
+
     <!-- ========================= -->
     <!-- COMO JOGAR -->
     <!-- ========================= -->
@@ -304,9 +329,18 @@
 
             </div>
 
-            <a href="https://discord.gg/Tw3AV8qJjy" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                Entrar no Discord
-            </a>
+            <div class="steps-action">
+
+                <a href="https://discord.gg/Tw3AV8qJjy" 
+                class="btn btn-primary" 
+                target="_blank" 
+                rel="noopener noreferrer">
+
+                    Entrar no Discord
+
+                </a>
+
+            </div>
 
         </div>
 
@@ -416,13 +450,32 @@
     <script src="js/main.js"></script>
     <script src="js/discord.js"></script>
     <script src="js/particles.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="js/server.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="js/script.js"></script>
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/analytics/script.js"></script>
+
+    <div id="trailer-modal" class="trailer-modal">
+
+        <div class="trailer-overlay" onclick="closeTrailer()"></div>
+
+        <div class="trailer-content">
+
+            <span class="trailer-close" onclick="closeTrailer()">✖</span>
+
+            <iframe 
+                id="trailer-video"
+                src=""
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
 
 </body>
 

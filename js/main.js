@@ -5,32 +5,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (navbar) {
         window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-
+            navbar.classList.toggle("scrolled", window.scrollY > 50);
         });
     }
 
-    // SCROLL REVEAL (só se existir)
+    // SCROLL REVEAL
     if (typeof ScrollReveal !== "undefined") {
 
-        ScrollReveal().reveal('.hero-content', {
+        const sr = ScrollReveal();
+
+        sr.reveal('.hero-content', {
             delay: 300,
             distance: '50px',
             origin: 'bottom'
         });
 
-        ScrollReveal().reveal('.system-card', {
+        sr.reveal('.system-card', {
             interval: 200,
             distance: '30px',
             origin: 'bottom'
         });
 
-        ScrollReveal().reveal('.gallery-grid img', {
+        sr.reveal('.gallery-grid img', {
             interval: 150,
             distance: '20px',
             origin: 'bottom'
@@ -38,54 +34,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    // CONTADORES
-    function animateCounter(id, target) {
+});
 
-        let element = document.getElementById(id);
+function openTrailer() {
 
-        // proteção contra erro
-        if (!element) return;
+    const modal = document.getElementById("trailer-modal");
+    const video = document.getElementById("trailer-video");
 
-        let count = 0;
-        let speed = target / 100;
+    if (!modal || !video) return;
 
-        let interval = setInterval(() => {
+    modal.style.display = "block"; // 🔥 corrigido
 
-            count += speed;
+    video.src = "https://www.youtube.com/embed/uLveNU0p88A?autoplay=1";
 
-            if (count >= target) {
-                count = target;
-                clearInterval(interval);
-            }
+}
 
-            element.innerText = Math.floor(count);
+function closeTrailer() {
 
-        }, 20);
+    const modal = document.getElementById("trailer-modal");
+    const video = document.getElementById("trailer-video");
 
+    if (!modal || !video) return;
+
+    modal.style.display = "none";
+    video.src = "";
+
+}
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+        closeTrailer();
     }
-
-    // executa só se existir no HTML
-    // if (document.getElementById("players-online")) {
-    //     animateCounter("players-online", 120);
-    // }
-    //
-    // if (document.getElementById("discord-members")) {
-    //    animateCounter("discord-members", 850);
-    // }
 
 });
 
-
-// LIGHTBOX (fora do DOMContentLoaded para funcionar globalmente)
 function openImage(img) {
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
 
-    if (!lightbox || !lightboxImg) return;
+    if (!lightbox || !lightboxImg || !img) return;
 
-    lightbox.style.display = "flex";
     lightboxImg.src = img.src;
+
+    lightbox.classList.add("active");
 
 }
 
@@ -95,6 +88,6 @@ function closeImage() {
 
     if (!lightbox) return;
 
-    lightbox.style.display = "none";
+    lightbox.classList.remove("active");
 
 }
