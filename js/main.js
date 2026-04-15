@@ -1,40 +1,109 @@
-document.addEventListener("DOMContentLoaded", () => {
+// =========================
+// INIT
+// =========================
 
-    // NAVBAR SCROLL
+document.addEventListener("DOMContentLoaded", () => {
+    initNavbar();
+    initScrollReveal();
+    initVIPSystem();
+    initLightbox();
+    initLightEffect();
+});
+
+
+// =========================
+// NAVBAR
+// =========================
+
+function initNavbar() {
+
     const navbar = document.querySelector(".navbar");
 
-    if (navbar) {
-        window.addEventListener("scroll", () => {
-            navbar.classList.toggle("scrolled", window.scrollY > 50);
-        });
+    if (!navbar) return;
+
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+}
+
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+function initScrollReveal() {
+
+    if (typeof ScrollReveal === "undefined") return;
+
+    const sr = ScrollReveal();
+
+    sr.reveal('.hero-content', {
+        delay: 300,
+        distance: '50px',
+        origin: 'bottom'
+    });
+
+    sr.reveal('.system-card', {
+        interval: 200,
+        distance: '30px',
+        origin: 'bottom'
+    });
+
+    sr.reveal('.gallery-grid img', {
+        interval: 150,
+        distance: '20px',
+        origin: 'bottom'
+    });
+}
+
+
+// =========================
+// LIGHTBOX (CORRIGIDO)
+// =========================
+
+function initLightbox() {
+
+    const lightbox = document.getElementById("lightbox");
+
+    if (!lightbox) return;
+
+    // Fecha clicando fora da imagem
+    lightbox.addEventListener("click", (e) => {
+        if (e.target.id === "lightbox") {
+            closeImage();
+        }
+    });
+}
+
+function openImage(img) {
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    if (!lightbox || !lightboxImg || !img) return;
+
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+}
+
+function closeImage() {
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    if (!lightbox) return;
+
+    lightbox.style.display = "none";
+
+    if (lightboxImg) {
+        lightboxImg.src = "";
     }
+}
 
-    // SCROLL REVEAL
-    if (typeof ScrollReveal !== "undefined") {
 
-        const sr = ScrollReveal();
-
-        sr.reveal('.hero-content', {
-            delay: 300,
-            distance: '50px',
-            origin: 'bottom'
-        });
-
-        sr.reveal('.system-card', {
-            interval: 200,
-            distance: '30px',
-            origin: 'bottom'
-        });
-
-        sr.reveal('.gallery-grid img', {
-            interval: 150,
-            distance: '20px',
-            origin: 'bottom'
-        });
-
-    }
-
-});
+// =========================
+// TRAILER
+// =========================
 
 function openTrailer() {
 
@@ -43,10 +112,8 @@ function openTrailer() {
 
     if (!modal || !video) return;
 
-    modal.style.display = "block"; // 🔥 corrigido
-
+    modal.style.display = "flex";
     video.src = "https://www.youtube.com/embed/uLveNU0p88A?autoplay=1";
-
 }
 
 function closeTrailer() {
@@ -58,36 +125,63 @@ function closeTrailer() {
 
     modal.style.display = "none";
     video.src = "";
-
 }
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (e.key === "Escape") {
-        closeTrailer();
-    }
+    const modal = document.getElementById("trailer-modal");
+
+    if (!modal) return;
+
+    modal.addEventListener("click", (e) => {
+        if (e.target.id === "trailer-modal") {
+            closeTrailer();
+        }
+    });
 
 });
 
-function openImage(img) {
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
+// =========================
+// UX GLOBAL
+// =========================
 
-    if (!lightbox || !lightboxImg || !img) return;
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeTrailer();
+        closeImage(); // 🔥 melhora UX
+    }
+});
 
-    lightboxImg.src = img.src;
 
-    lightbox.classList.add("active");
+// =========================
+// VIP LIGHT EFFECT (CORRIGIDO)
+// =========================
+
+function initLightEffect() {
+
+    document.querySelectorAll(".vip-card").forEach(card => {
+
+        card.addEventListener("mousemove", (e) => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty("--x", `${x}px`);
+            card.style.setProperty("--y", `${y}px`);
+        });
+
+    });
 
 }
 
-function closeImage() {
 
-    const lightbox = document.getElementById("lightbox");
+// =========================
+// VIP SYSTEM (placeholder)
+// =========================
 
-    if (!lightbox) return;
-
-    lightbox.classList.remove("active");
-
+function initVIPSystem() {
+    // reservado para futuras funções
 }

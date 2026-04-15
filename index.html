@@ -70,7 +70,9 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#sistemas">Sistemas</a></li>
                 <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#trailer">Trailer</a></li>
                 <li><a href="#como-jogar">Como Jogar</a></li>
+                <li><a href="#vip">VIP</a></li>
 
             </ul>
 
@@ -88,7 +90,7 @@
 
     <section id="inicio" class="hero">
 
-        <video autoplay muted loop class="hero-video">
+        <video autoplay muted loop playsinline preload="none" class="hero-video">>
             <source src="assets/videos/LogoAnim.mp4" type="video/mp4">
         </video>
 
@@ -245,20 +247,20 @@
 
             <div class="gallery-grid">
 
-                <img src="assets/images/city1.jpg" onclick="openImage(this)">
-                <img src="assets/images/city2.jpg" onclick="openImage(this)">
-                <img src="assets/images/city3.jpg" onclick="openImage(this)">
-                <img src="assets/images/event.png" onclick="openImage(this)">
-                <img src="assets/images/city5.png" onclick="openImage(this)">
-                <img src="assets/images/city6.png" onclick="openImage(this)">
-                <img src="assets/images/city7.png" onclick="openImage(this)">
-                <img src="assets/images/city8.jpg" onclick="openImage(this)">
+                <img src="assets/images/city1.jpg" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city2.jpg" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city3.jpg" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/event.png" alt="Evento ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city5.png" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city6.png" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city7.png" alt="Cidade ARX Roleplay" onclick="openImage(this)">
+                <img src="assets/images/city8.jpg" alt="Cidade ARX Roleplay" onclick="openImage(this)">
 
             </div>
 
             <div id="lightbox">
 
-                <span onclick="closeImage()">×</span>
+                <button onclick="closeImage()">×</button>
 
                 <img id="lightbox-img">
 
@@ -270,9 +272,9 @@
 
 
     <!-- 🎬 TRAILER -->
-    <section class="trailer-section" id="trailer">
+    <section id="trailer" class="trailer-section">
 
-        <h2>🎬 Trailer Oficial</h2>
+        <h2>Trailer Oficial</h2>
         <p>Conheça a cidade antes de entrar.</p>
 
         <div class="trailer-container">
@@ -346,7 +348,116 @@
 
     </section>
 
+    <!-- ========================= -->
+    <!-- ========== VIP ========== -->
+    <!-- ========================= -->
 
+    <section class="vip-section" id="vip">
+
+        <div class="vip-header">
+            <h2>Planos VIP</h2>
+            <p>Evolua sua experiência dentro da cidade.</p>
+        </div>
+
+        <div class="vip-grid">
+
+            <!-- BRONZE -->
+            <section class="vip-card bronze">
+                <div class="vip-front">
+                    <h3>BRONZE</h3>
+                    <p>O primeiro passo rumo ao poder.</p>
+                </div>
+
+                <div class="vip-hover">
+                    <p class="vip-price">R$ 35</p>
+                    <ul>
+                        <li>Salário: $4.000</li>
+                        <li>1 Carro VIP*</li>
+                    </ul>
+
+                    <a href="https://discord.gg/Tw3AV8qJjy" target="_blank" class="vip-btn">
+                        Comprar no Discord
+                    </a>
+                </div>
+            </section>
+
+            <!-- PRATA -->
+            <section class="vip-card prata">
+                <div class="vip-front">
+                    <h3>PRATA</h3>
+                    <p>Mais status, mais respeito.</p>
+                </div>
+
+                <div class="vip-hover">
+                    <p class="vip-price">R$ 45</p>
+                    <ul>
+                        <li>Salário: $6.000</li>
+                        <li>2 Carros VIP*</li>
+                    </ul>
+
+                    <a href="https://discord.gg/Tw3AV8qJjy" target="_blank" class="vip-btn">
+                        Comprar no Discord
+                    </a>
+                </div>
+            </section>
+
+            <!-- OURO -->
+            <section class="vip-card ouro destaque">
+                <span class="vip-badge">Mais Popular</span>
+                <div class="vip-front">
+                    <h3>OURO</h3>
+                    <p>Domine as ruas.</p>
+                </div>
+
+                <div class="vip-hover">
+                    <p class="vip-price">R$ 75</p>
+                    <ul>
+                        <li>Salário: $9.000</li>
+                        <li>3 Carros VIP*</li>
+                        <li>1 Casa Básica</li>
+                    </ul>
+
+                    <a href="https://discord.gg/Tw3AV8qJjy" target="_blank" class="vip-btn">
+                        Comprar no Discord
+                    </a>
+                </div>
+            </section>
+
+            <!-- APOIADOR -->
+            <section class="vip-card apoiador">
+                <div class="vip-front">
+                    <h3>APOIADOR</h3>
+                    <p>O nome por trás da cidade.</p>
+                </div>
+
+                <div class="vip-hover">
+                    <p class="vip-price">R$ 50</p>
+                    <ul>
+                        <li>20 Vagas</li>
+                        <li>Salário: $12.000</li>
+                        <li>3 Carros VIP*</li>
+                        <li>$150.000</li>
+                    </ul>
+
+                    <a href="https://discord.gg/Tw3AV8qJjy" target="_blank" class="vip-btn">
+                        Comprar no Discord
+                    </a>
+                </div>
+            </section>
+
+        </div>
+        <p class="vip-note">
+            Todas as compras são realizadas via Discord com suporte da equipe.
+        </p>
+        <p class="vip-note">
+            Disponíveis no nosso Discord - Suporte VIP 24h.
+        </p>
+        <p class="vip-note">
+            * Os veículos VIP disponíveis podem variar. Consulte a lista completa no Discord.
+        </p>
+
+    </section>
+    
     <!-- ========================= -->
     <!-- CALL TO ACTION -->
     <!-- ========================= -->
@@ -447,29 +558,26 @@
     <div id="youtube-player"></div>
 
     <script src="https://unpkg.com/scrollreveal"></script>
+
     <script src="js/main.js"></script>
-    <script src="js/discord.js"></script>
-    <script src="js/particles.js"></script>
     <script src="js/server.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="js/discord.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/particles.js"></script>
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/analytics/script.js"></script>
 
-    <div id="trailer-modal" class="trailer-modal">
-
-        <div class="trailer-overlay" onclick="closeTrailer()"></div>
+    <div id="trailer-modal">
 
         <div class="trailer-content">
 
-            <span class="trailer-close" onclick="closeTrailer()">✖</span>
+            <button class="trailer-close" onclick="closeTrailer()">×</button>
 
             <iframe 
                 id="trailer-video"
                 src=""
-                frameborder="0"
-                allow="autoplay; encrypted-media"
+                allow="autoplay; encrypted-media; fullscreen"
                 allowfullscreen>
             </iframe>
 
