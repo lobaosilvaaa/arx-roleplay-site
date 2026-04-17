@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initVIPSystem();
     initLightbox();
     initLightEffect();
+    initEntryModal();
 });
 
 
@@ -184,4 +185,35 @@ function initLightEffect() {
 
 function initVIPSystem() {
     // reservado para futuras funções
+}
+
+// =========================
+// ENTRY MODAL
+// =========================
+
+// =========================
+// ENTRY MODAL
+// =========================
+
+function initEntryModal() {
+
+    const modal = document.getElementById("entry-modal");
+
+    if (!modal) return;
+
+    // mostra após pequeno delay
+    setTimeout(() => {
+        modal.style.display = "flex";
+    }, 800);
+
+}
+
+// fechar
+function closeEntry() {
+
+    const modal = document.getElementById("entry-modal");
+    if (!modal) return;
+
+    modal.style.display = "none";
+
 }

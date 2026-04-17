@@ -1589,3 +1589,80 @@ footer {
     color: #000;
     font-weight: 600;
 }
+
+  /* =============== */
+ /* = Entry Modal = */
+/* =============== */
+
+#entry-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.9);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+/* conteúdo */
+.entry-content {
+    position: relative;
+    max-width: 960px;
+    width: 90%;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    background: #000;
+
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+/* imagem */
+.entry-content img {
+    width: 100%;
+    display: block;
+}
+
+/* botão fechar */
+.entry-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+
+    border: none;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+/* botão CTA */
+.entry-btn {
+    display: block;
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(90deg, #7c3aed, #9333ea);
+    color: #fff;
+
+    font-weight: 600;
+
+    border: none;
+    cursor: pointer;
+
+    text-align: center;
+}
