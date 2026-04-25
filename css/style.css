@@ -1492,6 +1492,10 @@ footer {
  /* CRIADORES OFICIAIS ARX */
 /* ====================== */
 
+/* ========================= */
+/* SECTION BASE */
+/* ========================= */
+
 .creators-section {
     padding: 100px 20px;
     text-align: center;
@@ -1499,7 +1503,7 @@ footer {
 }
 
 .creators-header h2 {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 10px;
 }
 
@@ -1508,15 +1512,173 @@ footer {
     margin-bottom: 50px;
 }
 
-.creators-grid {
+/* ========================= */
+/* STACK (LAYOUT CORRETO) */
+/* ========================= */
+
+.creators-stack {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+/* ========================= */
+/* STREAMER CARD 3D */
+/* ========================= */
+
+.creator-card-3d {
+    perspective: 1000px;
+    width: 320px;
+}
+
+/* CARD INTERNO */
+.card-inner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+
+    background: linear-gradient(145deg, #0a0a0a, #111);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.8),
+        0 0 60px rgba(139,92,246,0.15);
+}
+
+/* IMAGEM */
+.card-inner img {
+    width: 100%;
+    display: block;
+}
+
+/* ========================= */
+/* HOLOGRÁFICO */
+/* ========================= */
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(255,255,255,0.25),
+        transparent 40%
+    );
+
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+/* ========================= */
+/* OVERLAY */
+/* ========================= */
+
+.creator-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    text-align: center;
+
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: 0.3s ease;
+}
+
+.creator-card-3d:hover .creator-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TEXTO */
+.creator-overlay h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.creator-overlay p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+/* ========================= */
+/* REDES */
+/* ========================= */
+
+.creator-socials {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-/* CARD PRINCIPAL */
+.creator-socials a {
+    padding: 6px 10px;
+    border-radius: 6px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.creator-socials a:hover {
+    background: #7c3aed;
+}
+
+/* ========================= */
+/* BADGE STREAMER */
+/* ========================= */
+
+.creator-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-weight: 700;
+    font-size: 12px;
+
+    color: #000;
+
+    background: linear-gradient(90deg, #facc15, #fde047);
+
+    box-shadow:
+        0 0 10px rgba(250,204,21,0.6),
+        0 0 20px rgba(250,204,21,0.4);
+
+    z-index: 2;
+
+    animation: badgePulse 2.5s infinite;
+}
+
+/* ========================= */
+/* CTA CARD */
+/* ========================= */
+
 .creator-card.highlight {
     max-width: 420px;
     width: 100%;
+
     padding: 30px;
 
     border-radius: 20px;
@@ -1534,29 +1696,29 @@ footer {
     box-shadow:
         0 0 40px rgba(139,92,246,0.25);
 
-    transition: 0.3s ease;
+    position: relative;
 }
 
-.creator-card.highlight:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow:
-        0 0 60px rgba(139,92,246,0.4);
-}
+/* BADGE CTA */
+.creator-badge-cta {
+    display: inline-block;
+    margin-bottom: 10px;
 
-.creator-card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-}
+    font-size: 12px;
+    padding: 5px 12px;
 
-.creator-card p {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 20px;
+    border-radius: 999px;
+
+    background: #facc15;
+    color: #000;
+    font-weight: 700;
 }
 
 /* BOTÃO */
 .creator-btn {
     display: inline-block;
+    margin-top: 15px;
+
     padding: 12px 20px;
 
     border-radius: 10px;
@@ -1576,18 +1738,40 @@ footer {
     box-shadow: 0 0 20px rgba(139,92,246,0.5);
 }
 
-.creator-badge {
-    display: inline-block;
-    margin-bottom: 10px;
+/* ========================= */
+/* ANIMAÇÕES */
+/* ========================= */
 
-    font-size: 12px;
-    padding: 4px 10px;
+@keyframes badgePulse {
+    0% {
+        box-shadow:
+            0 0 10px rgba(250,204,21,0.6),
+            0 0 20px rgba(250,204,21,0.4);
+    }
+    50% {
+        box-shadow:
+            0 0 20px rgba(250,204,21,0.9),
+            0 0 40px rgba(250,204,21,0.6);
+    }
+    100% {
+        box-shadow:
+            0 0 10px rgba(250,204,21,0.6),
+            0 0 20px rgba(250,204,21,0.4);
+    }
+}
 
-    border-radius: 999px;
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
 
-    background: #facc15;
-    color: #000;
-    font-weight: 600;
+@media (max-width: 768px) {
+    .creator-card-3d {
+        width: 90%;
+    }
+
+    .creator-card.highlight {
+        width: 90%;
+    }
 }
 
   /* =============== */

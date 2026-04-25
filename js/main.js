@@ -217,3 +217,36 @@ function closeEntry() {
     modal.style.display = "none";
 
 }
+
+document.querySelectorAll(".creator-card-3d").forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 10;
+        const rotateY = (x - centerX) / 10;
+
+        const inner = card.querySelector(".card-inner");
+
+        inner.style.transform = `
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+
+        inner.style.setProperty("--x", `${x}px`);
+        inner.style.setProperty("--y", `${y}px`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+        const inner = card.querySelector(".card-inner");
+        inner.style.transform = "rotateX(0) rotateY(0)";
+    });
+
+});
