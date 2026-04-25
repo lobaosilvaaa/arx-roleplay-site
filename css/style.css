@@ -1774,6 +1774,47 @@ footer {
     }
 }
 
+/* ========================= */
+/* BADGE AO VIVO */
+/* ========================= */
+
+.live-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    color: #fff;
+
+    background: rgba(255, 0, 0, 0.15);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+
+    backdrop-filter: blur(6px);
+
+    display: none; /* 👈 começa escondido */
+
+    animation: livePulse 1.5s infinite;
+}
+
+/* animação pulsando */
+@keyframes livePulse {
+    0% {
+        box-shadow: 0 0 5px rgba(255,0,0,0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255,0,0,1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255,0,0,0.5);
+    }
+}
+
   /* =============== */
  /* = Entry Modal = */
 /* =============== */

@@ -250,3 +250,26 @@ document.querySelectorAll(".creator-card-3d").forEach(card => {
     });
 
 });
+
+// =========================
+// LIVE STATUS (SIMPLES)
+// =========================
+
+function initLiveStatus() {
+
+    const liveBadge = document.getElementById("live-status");
+
+    if (!liveBadge) return;
+
+    // 🔥 ALTERE AQUI (true = ao vivo)
+    const isLive = true;
+
+    if (isLive) {
+        liveBadge.style.display = "block";
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    initLiveStatus();
+});
